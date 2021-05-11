@@ -1,20 +1,12 @@
-# examples/things.py
-
-# Let's get this party started!
-from wsgiref.simple_server import make_server
-
 import falcon
-import json
 
+#import custom routes for different modules
 from src.tokenize import Tokenization 
+from src.visualize import Visualization
 
-
+#init app
 app = falcon.App()
 
-app.add_route('/tokenization', Tokenization())
-
-if __name__ == '__main__':
-    port = 8000
-    with make_server('', port, app) as httpd:
-        print('Port: '  + str(port))
-        httpd.serve_forever()
+#add modules to app
+app.add_route('/token/list', Tokenization())
+app.add_route('/token/visualization', Visualization())

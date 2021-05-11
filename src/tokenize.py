@@ -19,7 +19,9 @@ class Tokenization:
             for token in doc:
                 response.append({
                     "text": token.text,
-                    "dep": "ABHÄNGIG"
+                    "lemma": token.lemma_,
+                    "position": token.pos_,
+                    "dependencies": token.dep_
                 })
             resp.status = falcon.HTTP_200
             resp.text = json.dumps(response)
