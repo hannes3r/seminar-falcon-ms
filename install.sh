@@ -1,3 +1,4 @@
+#!/bin/sh
 python -m venv ./env
 . env/bin/activate
 pip install -r packages.txt
