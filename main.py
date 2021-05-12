@@ -1,8 +1,8 @@
 import falcon
 
 #import custom routes for different modules
-from src.tokenize import Tokenization 
-from src.visualize import Visualization
+from src.tokenization import Tokenization 
+from src.visualization import Visualization
 
 #init app
 app = falcon.App()
