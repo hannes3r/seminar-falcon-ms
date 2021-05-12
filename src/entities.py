@@ -20,7 +20,7 @@ class EntityRecognition:
                     "text": ent.text,
                     "label": ent.label_,
                     "start_position": ent.start_char,
-                    "end_position": ent.end_chart
+                    "end_position": ent.end_char
                 })
             resp.status = falcon.HTTP_200
             resp.text = json.dumps(response)
