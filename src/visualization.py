@@ -1,5 +1,6 @@
 import falcon
 import spacy
+import json
 from spacy import displacy
 
 nlp = spacy.load('de_core_news_sm')
@@ -28,16 +29,9 @@ class EntityRecognition_Visualization:
 
         if text != "":
             doc = nlp(text)
-            response = []
-            for ent in doc.ents:
-                response.append({
-                    "text": ent.text,
-                    "label": ent.label_,
-                    "start_position": ent.start_char,
-                    "end_position": ent.end_chart
-                })
             resp.status = falcon.HTTP_200
-            resp.text = json.dumps(response)
+            resp.content_type = falcon.MEDIA_HTML
+            resp.text = displacy.render(doc, style="ent")
         else:
             response = {"error":"Error while converting, please check your input"}
             resp.status = falcon.HTTP_200
