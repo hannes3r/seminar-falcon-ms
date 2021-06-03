@@ -20,7 +20,6 @@ class Tokenization:
             for token in doc:
                 response.append({
                     "text": token.text,
-                    "lemma": token.lemma_,
                     "position": token.pos_,
                     "dependencies": token.dep_
                 })
