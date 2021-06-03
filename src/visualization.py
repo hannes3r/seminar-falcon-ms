@@ -15,7 +15,7 @@ class Dependency_Visualization:
 
         if text!="": 
             doc = nlp(text)
-            resp.status = falcon.HTTP_400
+            resp.status = falcon.HTTP_200
             resp.content_type = falcon.MEDIA_HTML
             resp.text = displacy.render(doc, style="dep")
         else:
