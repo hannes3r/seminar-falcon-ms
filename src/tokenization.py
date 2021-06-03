@@ -27,7 +27,7 @@ class Tokenization:
             resp.text = json.dumps(response)
         else:
             response = {"error":"Error while converting, please check your input"}
-            resp.status = falcon.HTTP_200
+            resp.status = falcon.HTTP_400
             resp.text = json.dumps(response)
 
         

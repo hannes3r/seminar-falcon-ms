@@ -15,9 +15,13 @@ class Dependency_Visualization:
 
         if text!="": 
             doc = nlp(text)
-            resp.status = falcon.HTTP_200
+            resp.status = falcon.HTTP_400
             resp.content_type = falcon.MEDIA_HTML
             resp.text = displacy.render(doc, style="dep")
+        else:
+            response = {"error":"Error while converting, please check your input"}
+            resp.status = falcon.HTTP_400
+            resp.text = json.dumps(response)
 
 class EntityRecognition_Visualization:
     def on_get(self, req, resp):
@@ -34,5 +38,5 @@ class EntityRecognition_Visualization:
             resp.text = displacy.render(doc, style="ent")
         else:
             response = {"error":"Error while converting, please check your input"}
-            resp.status = falcon.HTTP_200
+            resp.status = falcon.HTTP_400
             resp.text = json.dumps(response)
