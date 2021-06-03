@@ -1,8 +1,9 @@
 import json
 import falcon
 import spacy
+import src.spacy_load
 
-nlp = spacy.load('de_core_news_sm')
+nlp = src.spacy_load.get_nlp_object()
 
 class Tokenization:
     def on_get(self, req, resp):

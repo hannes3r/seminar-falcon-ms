@@ -2,8 +2,9 @@ import falcon
 import spacy
 import json
 from spacy import displacy
+import src.spacy_load
 
-nlp = spacy.load('de_core_news_sm')
+nlp = src.spacy_load.get_nlp_object()
 
 class Dependency_Visualization:
     def on_get(self, req, resp):
